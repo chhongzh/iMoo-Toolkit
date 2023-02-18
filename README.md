@@ -1,4 +1,4 @@
-### iMoo Toolkit (EN/[ZH](https://github.com/ReX-iMoo-Team/iMoo-Toolkit/blob/master/README_CN.md))
+### iMoo Toolkit (EN/[ZH](https://github.com/ReX-iMoo-Team/iMoo-Toolkit/blob/master/README_ZH.md))
 
 
 #### Introduce
