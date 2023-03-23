@@ -374,9 +374,6 @@ def mainp():
         progress_bartest()
         sys.exit(1)
 
-#    if mode == 'root_dev':
-#        k2415rootmode_test()
-
     if mode == '8':
         dpisize()
 
