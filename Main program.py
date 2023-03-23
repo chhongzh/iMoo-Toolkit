@@ -43,11 +43,11 @@ def restart_program():
     os.execl(python, python, *sys.argv)
 
 def progress_bar():
-  for i in range(1, 101):
-    print("\r", end="")
-    print("Reboot: {}%: ".format(i), "▋" * (i // 1), end="")
-    sys.stdout.flush()
-    time.sleep(0.7)
+    for i in range(1, 101):
+        print("\r", end="")
+        print("Reboot: {}%: ".format(i), "▋" * (i // 1), end="")
+        sys.stdout.flush()
+        time.sleep(0.7)
 
 
 def addInstall(cmd):
@@ -55,59 +55,45 @@ def addInstall(cmd):
 
 def adbmode():
     while True:
-        sc = input('shell:')
-        if sc == 'exit':
+        input_text = input('shell:')
+        if(input_text == 'exit'):
             sys.exit(1)
 
-        if sc =='':
-            adbmode()
+        if(input_text == ''):
+            pass
 
         else:
-            device.shell(sc)
-            adbmode()
+            device.shell(input_text)
 
 
 def start():
     adbmode()
 
 def progress_bartest():
-  os.system('cls')
-  namef=input('firstname:')
-  namel=input('lastname:')
-  tim=input('time:')
-  inf=input('fill:')
-  info=input('f/s:')
-  info=int(info)
-  tim=int(tim)
-  namef = namef+"  {}%: "
-  namel = " "+namel
-  for i in range(1, 101):
-      print("\r", end="")
-      print(namef.format(i), inf * (i // info), end=namel)
-      sys.stdout.flush()
-      time.sleep(tim)
-
-#def k2415rootmode_test():
-#    os.system('cls')
-#    key=input('key:')
-
-#    if key == '':
-#        os.system('cls')
-#        #rootmode()
-
-#    else:
-#        os.system('cls')
-#        input('测试功能，暂不开放')
-#        sys.exit(1)
+    os.system('cls')
+    namef=input('firstname:')
+    namel=input('lastname:')
+    tim=input('time:')
+    inf=input('fill:')
+    info=input('f/s:')
+    info=int(info)
+    tim=int(tim)
+    namef = namef+"  {}%: "
+    namel = " "+namel
+    for i in range(1, 101):
+        print("\r", end="")
+        print(namef.format(i), inf * (i // info), end=namel)
+        sys.stdout.flush()
+        time.sleep(tim)
 
 def dpisize():
     print('1.查看分辨率\n2.修改分辨率\n3.查看DPI\n4.修改DPI\n5.恢复原始分辨率\n6.恢复原始DPI')
     moded=input('选择模式:')
     os.system('cls')
     if moded =='1':
-      out=device.shell('wm size')
-      input(out)
-      dpisize()
+        out=device.shell('wm size')
+        input(out)
+        dpisize()
 
     if moded =='2':
         out = device.shell('wm size')
@@ -415,18 +401,18 @@ if __name__ == "__main__":
             exceptionName = type(err).__name__
             exceptionInfo = str(err)
             if exceptionInfo == 'LIBUSB_ERROR_ACCESS [-3]':
-                  os.system('taskkill /T /F /IM adb.exe')
-                  device = AdbDeviceUsb()
-                  device.connect(rsa_keys=[PythonRSASigner(pub=pubkey, priv=privkey)])
+                os.system('taskkill /T /F /IM adb.exe')
+                device = AdbDeviceUsb()
+                device.connect(rsa_keys=[PythonRSASigner(pub=pubkey, priv=privkey)])
 
             elif exceptionInfo == 'No device available, or it is in the wrong configuration.':
-                  print("您未连接设备，请连接后重新打开此软件")
-                  input("按回车键退出.")
-                  sys.exit(1)
+                print("您未连接设备，请连接后重新打开此软件")
+                input("按回车键退出.")
+                sys.exit(1)
             else:
-                  print("连接失败, 错误信息: \n%s: %s" % (exceptionName, exceptionInfo))
-                  input("按回车键退出.")
-                  sys.exit(1)
+                print("连接失败, 错误信息: \n%s: %s" % (exceptionName, exceptionInfo))
+                input("按回车键退出.")
+                sys.exit(1)
 
         print("连接成功")
         os.system('start adb.exe ')
